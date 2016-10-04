@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Couleur_swift" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wP8-Vc-rbW">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="275" id="aaA-d7-lTM"/>
+                                    <constraint firstAttribute="width" constant="343" id="jKC-t7-Nfu"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="aaA-d7-lTM"/>
+                                        <exclude reference="jKC-t7-Nfu"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=compact-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="jKC-t7-Nfu"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="aaA-d7-lTM"/>
+                                    </mask>
+                                </variation>
+                            </label>
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="1kW-8i-PYn">
+                                <connections>
+                                    <action selector="actionStepper:" destination="BYZ-38-t0r" eventType="valueChanged" id="FTX-Cz-Y8t"/>
+                                </connections>
+                            </stepper>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="1kW-8i-PYn" firstAttribute="leading" secondItem="wP8-Vc-rbW" secondAttribute="trailing" constant="85" id="2rA-xx-UTE"/>
+                            <constraint firstItem="wP8-Vc-rbW" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="8fe-0v-vLL"/>
+                            <constraint firstItem="wP8-Vc-rbW" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="FYR-w4-au6"/>
+                            <constraint firstItem="wP8-Vc-rbW" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="Tcm-v3-b5e"/>
+                            <constraint firstItem="wP8-Vc-rbW" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="30" id="Xxo-9X-8tj"/>
+                            <constraint firstItem="wP8-Vc-rbW" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="erl-J1-Xmh"/>
+                            <constraint firstItem="wP8-Vc-rbW" firstAttribute="centerY" secondItem="1kW-8i-PYn" secondAttribute="centerY" id="nrn-S8-UOw"/>
+                            <constraint firstItem="wP8-Vc-rbW" firstAttribute="centerX" secondItem="1kW-8i-PYn" secondAttribute="centerX" id="p7R-aT-b78"/>
+                            <constraint firstAttribute="bottom" secondItem="1kW-8i-PYn" secondAttribute="bottom" constant="20" symbolic="YES" id="vl1-6I-td9"/>
+                            <constraint firstItem="wP8-Vc-rbW" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="xgH-VL-EIV"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="8fe-0v-vLL"/>
+                                <exclude reference="FYR-w4-au6"/>
+                                <exclude reference="Tcm-v3-b5e"/>
+                                <exclude reference="Xxo-9X-8tj"/>
+                                <exclude reference="erl-J1-Xmh"/>
+                                <exclude reference="nrn-S8-UOw"/>
+                                <exclude reference="p7R-aT-b78"/>
+                                <exclude reference="xgH-VL-EIV"/>
+                                <exclude reference="2rA-xx-UTE"/>
+                                <exclude reference="vl1-6I-td9"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=compact-widthClass=compact">
+                            <mask key="constraints">
+                                <include reference="FYR-w4-au6"/>
+                                <include reference="Xxo-9X-8tj"/>
+                                <include reference="erl-J1-Xmh"/>
+                                <include reference="nrn-S8-UOw"/>
+                                <include reference="2rA-xx-UTE"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="constraints">
+                                <include reference="8fe-0v-vLL"/>
+                                <include reference="Tcm-v3-b5e"/>
+                                <include reference="p7R-aT-b78"/>
+                                <include reference="xgH-VL-EIV"/>
+                                <include reference="vl1-6I-td9"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="myLabel" destination="wP8-Vc-rbW" id="zeb-Gx-ppQ"/>
+                        <outlet property="myStepper" destination="1kW-8i-PYn" id="9Wj-18-a9a"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="117.59999999999999" y="123.68815592203899"/>
+        </scene>
+    </scenes>
+</document>
