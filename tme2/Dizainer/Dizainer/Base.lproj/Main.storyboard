@@ -18,9 +18,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nfW-hD-Gig">
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="nfW-hD-Gig">
                                 <frame key="frameInset" minX="292" minY="28" width="51" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="mySwithToggleEvent:" destination="BYZ-38-t0r" eventType="valueChanged" id="3j9-LP-ZGM"/>
+                                </connections>
                             </switch>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="9yT-bx-4S5">
                                 <frame key="frameInset" minX="16" minY="90" width="343" height="29"/>
@@ -37,6 +40,9 @@
                                     <segment title="8"/>
                                     <segment title="9"/>
                                 </segments>
+                                <connections>
+                                    <action selector="myDecimalChangeEvent:" destination="BYZ-38-t0r" eventType="valueChanged" id="02L-Mu-Xob"/>
+                                </connections>
                             </segmentedControl>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="pff-Oe-iwN">
                                 <frame key="frameInset" minX="16" minY="147" width="343" height="29"/>
@@ -53,10 +59,16 @@
                                     <segment title="8"/>
                                     <segment title="9"/>
                                 </segments>
+                                <connections>
+                                    <action selector="myUnitsChangeEvent:" destination="BYZ-38-t0r" eventType="valueChanged" id="Mxt-gu-CiQ"/>
+                                </connections>
                             </segmentedControl>
                             <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="GVQ-cK-k3N">
                                 <frame key="frameInset" minX="14" minY="216" width="347" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="myHorizantalChangeValue:" destination="BYZ-38-t0r" eventType="valueChanged" id="YVq-lZ-f1I"/>
+                                </connections>
                             </slider>
                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="w8h-Sn-xsY">
                                 <frame key="frameInset" minX="16" minY="30" width="94" height="29"/>
@@ -65,15 +77,23 @@
                                     <action selector="myStepperAction:" destination="BYZ-38-t0r" eventType="valueChanged" id="lCz-2G-i1S"/>
                                 </connections>
                             </stepper>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZeT-lZ-Io1">
-                                <frame key="frameInset" minX="182" minY="323" width="11" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZeT-lZ-Io1">
+                                <frame key="frameInset" minX="161" minY="323" width="53" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="RaZ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZMk-qG-iri">
-                                <frame key="frameInset" minX="172" minY="285" width="31" height="21"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RqD-2O-RbV">
+                                <frame key="frameInset" minX="159" minY="285" width="57" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="RaZ"/>
+                                <connections>
+                                    <action selector="razButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2Nb-Ir-7Dx"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Geek Off" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YtR-ip-6Bb">
+                                <frame key="frameInset" minX="215" minY="34" width="69" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -83,9 +103,10 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
+                        <outlet property="counterLabel" destination="ZeT-lZ-Io1" id="2Bi-GA-GPp"/>
+                        <outlet property="geekLabel" destination="YtR-ip-6Bb" id="alE-dQ-eqH"/>
                         <outlet property="myDecimalSegment" destination="9yT-bx-4S5" id="bJu-Ff-ucT"/>
                         <outlet property="myHorizontalSlider" destination="GVQ-cK-k3N" id="bTh-Eb-ca9"/>
-                        <outlet property="myRazLabel" destination="ZMk-qG-iri" id="Tgd-FB-DTb"/>
                         <outlet property="myStepper" destination="w8h-Sn-xsY" id="eqe-WS-zg3"/>
                         <outlet property="mySwitch" destination="nfW-hD-Gig" id="adj-3v-zuM"/>
                         <outlet property="myUnitsSegment" destination="pff-Oe-iwN" id="XTm-e8-MRf"/>

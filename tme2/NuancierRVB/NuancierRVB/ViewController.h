@@ -1,14 +1,15 @@
 //
 //  ViewController.h
-//  Dizainer
+//  NuancierRVB
 //
-//  Created by m2sar on 03/10/2016.
+//  Created by m2sar on 04/10/2016.
 //  Copyright © 2016 UPMC. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
 @interface ViewController : UIViewController
-- (void)updateView:(int)value;
+
+
 @end
 

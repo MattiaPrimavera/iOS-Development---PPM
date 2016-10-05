@@ -16,39 +16,69 @@
 @property (nonatomic, retain) IBOutlet UISegmentedControl *myDecimalSegment;
 @property (nonatomic, retain) IBOutlet UILabel *myRazLabel;
 @property (nonatomic, retain) IBOutlet UISwitch *mySwitch;
+@property (nonatomic, retain) IBOutlet UILabel *geekLabel;
 @end
 
 int counter = 0;
 
 @implementation ViewController
+- (IBAction)razButtonClicked:(id)sender {
+    [self updateView:0];  
+}
+
+- (IBAction)mySwithToggleEvent:(id)sender {
+    NSString *string;
+    if ([_mySwitch isOn]) {
+        _geekLabel.text = @"Geek On";
+        string = [[[NSString alloc] initWithFormat:@"%x", (int)_myStepper.value] retain];
+    } else {
+        _geekLabel.text = @"Geek Off";
+        string = [[[NSString alloc] initWithFormat:@"%d", (int)_myStepper.value] retain];
+    }
+    _counterLabel.text = string;
+}
+
+- (IBAction)myDecimalChangeEvent:(id)sender {
+    [self updateView:(int)_myUnitsSegment.selectedSegmentIndex + (int)_myDecimalSegment.selectedSegmentIndex * 10];
+}
+
+- (IBAction)myHorizantalChangeValue:(id)sender {
+    [self updateView:(int)_myHorizontalSlider.value];
+}
+
+- (IBAction)myUnitsChangeEvent:(id)sender {
+    [self updateView:(int)_myUnitsSegment.selectedSegmentIndex + (int)_myDecimalSegment.selectedSegmentIndex * 10];
+}
+
+- (void)updateView:(int)value {
+    _myStepper.value = value;
+    _myHorizontalSlider.value = value;
+    _myUnitsSegment.selectedSegmentIndex = (int)_myStepper.value % 10;
+    [_myDecimalSegment setSelectedSegmentIndex:(int)_myStepper.value / 10];
+    
+    NSString *string;
+    if ([_mySwitch isOn]) { //Geek Mode On
+        string = [[[NSString alloc] initWithFormat:@"%x", (int)_myStepper.value] retain];
+    } else {
+        string = [[[NSString alloc] initWithFormat:@"%d", (int)_myStepper.value] retain];
+    }
+    _counterLabel.text = string;
+
+}
+
 - (IBAction)myStepperAction:(id)sender {
-    UIStepper *stepper = (UIStepper *) sender;
-    if (stepper){
-        NSString *string = [[[NSString alloc] initWithFormat:@"%d", counter] autorelease];
-        _counterLabel.text = string;
-    }
-    else{
-        
-    }
+    [self updateView:_myStepper.value];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //_myStepper.maximumValue = 99;
-    //_myStepper.minimumValue = 0;
-
-    // Do any additional setup after loading the view, typically from a nib.
-    //creating mutable array
-    // NSArray *items = [[[NSArray alloc] init] autorelease];
-    /*NSArray *items = [NSArray array];
-    for (int i = 0; i < 10; i++) {
-        items = [items arrayByAddingObject:[[NSString alloc] initWithFormat:@"%d", i]];
-    }
-    _myUnitsSegment = [[UISegmentedControl alloc] initWithItems:items];
+    _myStepper.maximumValue = 99;
+    _myStepper.minimumValue = 0;
+    _myStepper.value = 0;
     
-    NSArray *itemsDecimal = [[NSArray alloc] initWithObjects: @"Red",
-                           @"Blue", @"Green", @"Yellow", nil];
-    _myDecimalSegment = [[UISegmentedControl alloc] initWithItems:itemsDecimal];*/
+    _myHorizontalSlider.value = 0;
+    _myHorizontalSlider.minimumValue = 0;
+    _myHorizontalSlider.maximumValue = 99;
 }
 
 
