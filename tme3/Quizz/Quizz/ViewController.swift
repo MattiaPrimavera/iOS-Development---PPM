@@ -20,9 +20,7 @@ class DBQuestionAnswers{
         ("Q5", "A5", false, true)
     ]
     
-    init(){
-        
-    }
+    init(){}
     
     func getCurrent () -> (String, String, Bool, Bool) {
         return questions[current]
@@ -34,28 +32,25 @@ class DBQuestionAnswers{
 
     func getPrevious (modeBalaiseOn: Bool) -> (String, String, Bool, Bool) {
         // Circle loop through array
-        debugPrint("PREV QUEST: %d", current)
-        debugPrint(modeBalaiseOn)
         repeat{
             current = (current - 1) % (questions.count)
+            if(current < 0){
+                current *= -1
+            }
+
             if(questions[current].3 == modeBalaiseOn){
                 return questions[current]
             }
-            debugPrint("current: %d", current)
         }while true
     }
 
     func getNext (modeBalaiseOn: Bool) -> (String, String, Bool, Bool) {
-        debugPrint("NEXT QUEST: %d", current)
-        debugPrint("QUEST size: %d", questions.count)
-        
         // Circle loop through array
         repeat{
             current = (current + 1) % (questions.count)
             if(questions[current].3 == modeBalaiseOn){
                 return questions[current]
             }
-            debugPrint("current: %d", current)
         }while true
     }
 }
@@ -74,6 +69,7 @@ class ViewController: UIViewController {
     let db = DBQuestionAnswers()
     let previousQBImage = UIImage(named: "previousQuestion")
     let nextQBImage = UIImage(named: "nextQuestion")
+    var answersShown = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -89,13 +85,17 @@ class ViewController: UIViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     @IBAction func onShowAnswerClicked(_ sender: AnyObject) {
         let current = db.getCurrent()
+        if(current.2 == false){
+            answersShown += 1
+        }
+
         db.setCurrentToShown()
         answerText.text = current.1
+        answersShownNumber.text = "Réponses vues: " + String(answersShown)
     }
     
     @IBAction func onNextPreviousClicked(_ sender: AnyObject) {
@@ -109,18 +109,29 @@ class ViewController: UIViewController {
     }
     
     @IBAction func onModeSwitcherClicked(_ sender: AnyObject) {
+        var current = db.getCurrent()
+        if(current.3 == true && !modeSwitcher.isOn){
+            current = db.getNext(modeBalaiseOn: modeSwitcher.isOn)
+            self.updateView(question: current.0, answer: current.1, shown: current.2, hard: current.3)
+        }
     }
     
     func updateView(question: String, answer: String, shown: Bool, hard: Bool) {
-        debugPrint("updating the view: " + answer)
         questionText.text = question
         if(shown){
             answerText.text = answer
+        }else{
+            answerText.text = ""
         }
+
         if(hard){
             let redColor = UIColor.init(red: 255, green: 0, blue: 0, alpha: 1)
             questionText.textColor = redColor
             answerText.textColor = redColor
+        }else{
+            let blackColor = UIColor.init(red: 0, green: 0, blue: 0, alpha: 1)
+            questionText.textColor = blackColor
+            answerText.textColor = blackColor
         }
     }
 }
