@@ -73,8 +73,8 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        previousQuestionButton.setImage(previousQBImage, for: UIControlState.normal)
-        nextQuestionButton.setImage(nextQBImage, for: UIControlState.normal)
+        previousQuestionButton.setBackgroundImage(previousQBImage, for: UIControlState.normal)
+        nextQuestionButton.setBackgroundImage(nextQBImage, for: UIControlState.normal)
 
         previousQuestionButton.tag = 0
         nextQuestionButton.tag = 1
